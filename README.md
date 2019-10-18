@@ -6,7 +6,7 @@ Rails 6 based app implementing usual specs for production web apps:
 - [x] Template engine: Haml
 - [x] Authentication: Login with Devise
 - [x] Database: PostgreSQL
-- [ ] Basic Design: Bootstrap
+- [x] Basic Design: Bootstrap
 - [ ] Tests: Models, views, API
 - [ ] CRUD SPA: Stimulus
 - [ ] Wysiwyg Editor
