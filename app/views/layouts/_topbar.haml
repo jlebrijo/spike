@@ -1,0 +1,13 @@
+%nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  %a.navbar-brand{href: '/'} Spike
+  %button.navbar-toggler{aria: {controls: "navbarNav", expanded: "false", label: "Toggle navigation"}, data: {target: "#navbarNav", toggle: "collapse"}, type: "button"}
+    %span.navbar-toggler-icon
+  #navbarNav.collapse.navbar-collapse
+    %ul.navbar-nav.ml-auto
+      - if user_signed_in?
+        %li.nav-item
+          = link_to edit_user_registration_path, class: 'nav-link', title: 'Edit User' do
+            %i.fa.fa-lg.fa-edit
+        %li.nav-item
+          = link_to destroy_user_session_path, method: 'delete', class: 'nav-link', title: 'Logout' do
+            %i.fa.fa-lg.fa-sign-out
