@@ -1,0 +1,14 @@
+%h1 Listing users
+
+%table
+  %thead
+    %tr
+      %th Email
+      %th
+      %th
+      %th
+
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= user.email

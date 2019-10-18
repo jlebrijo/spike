@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'haml-rails'
+gem 'devise'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -45,6 +46,7 @@ group :development do
   gem 'guard'
   gem 'guard-rails'
   gem 'guard-bundler'
+  gem 'letter_opener'
 end
 
 group :test do
@@ -53,6 +55,14 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+end
+
+group :development, :test do
+  gem 'byebug', platform: :mri
+  gem 'pry-rails'
+  gem 'pry-rescue'
+  gem 'pry-byebug'
+  gem 'binding_of_caller'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
