@@ -2,10 +2,10 @@
 
 Rails 6 based app implementing usual specs for production web apps:
 
+- [x] Continuous Development: Guard
 - [ ] Basic Design: Bootstrap
 - [ ] Authentication: Login
 - [ ] Tests: Models, views, API
-- [ ] Continuous Testing: Guard
 - [ ] CRUD SPA: Stimulus
 - [ ] Wysiwyg Editor
 - [ ] File Uploading
