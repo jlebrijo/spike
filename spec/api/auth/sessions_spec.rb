@@ -9,7 +9,7 @@
 #    "uid"=>"darnell@konopelski.info"
 #  }
 
-describe 'Sessions', type: :request do
+describe 'API: Sessions', type: :request do
   let(:user) { create :user }
   before(:each) do
     user.confirm

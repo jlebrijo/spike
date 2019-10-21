@@ -8,6 +8,7 @@ Rails 6 based app implementing usual specs for production web apps:
 - [x] Database: PostgreSQL
 - [x] Basic Design: Bootstrap + Fontawesome
 - [x] Tests: Models, views, API
+- [x] REST API
 - [ ] CRUD SPA: Stimulus
 - [ ] Wysiwyg Editor
 - [ ] File Uploading
@@ -15,7 +16,6 @@ Rails 6 based app implementing usual specs for production web apps:
 - [ ] Assets pipeline storage ==> CDN, Spaces DO
 - [ ] Sending Emails with design
 - [ ] Reports: PDF with templates
-- [ ] REST API
 - [ ] API DOC: Swagger
 - [ ] Performance: Skylight
 - [ ] Deploying scripts from local ==> Docker and Kubernetes

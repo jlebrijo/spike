@@ -1,4 +1,4 @@
-describe 'Passwords', type: :request do
+describe 'API: Passwords', type: :request do
   let(:user) { create :user }
 
   describe 'POST /auth/password' do

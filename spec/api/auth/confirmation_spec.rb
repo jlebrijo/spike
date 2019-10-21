@@ -1,4 +1,4 @@
-describe 'Confirmation', type: :request do
+describe 'API: Confirmation', type: :request do
   it 'when user created a confirmation email is sent', :exclude do
     # There are no anonymous signups for now, so it is deactivated
     ActionMailer::Base.deliveries.clear

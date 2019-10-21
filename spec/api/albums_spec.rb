@@ -1,4 +1,4 @@
-describe 'api Albums' do
+describe 'API: Albums' do
   let(:user) { create :user }
   let!(:album) { create :album, user: user }
 
