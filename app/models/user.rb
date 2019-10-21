@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  include DeviseTokenAuth::Concerns::User
   # Include default devise modules. Others available are:
   # :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

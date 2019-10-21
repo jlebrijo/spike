@@ -20,7 +20,7 @@ feature 'Sign Up', :devise do
   #   Then I see an invalid email message
   scenario 'visitor cannot sign up with invalid email address' do
     sign_up_with('bogus', 'please123')
-    expect(page).to have_content 'Email is invalid'
+    expect(page).to have_content 'Email is not an email'
   end
 
   # Scenario: Visitor cannot sign up without password

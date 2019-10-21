@@ -30,6 +30,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'haml-rails'
 gem 'devise'
 gem 'devise-bootstrap-views'
+gem 'devise_token_auth'
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
