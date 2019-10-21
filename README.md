@@ -7,7 +7,7 @@ Rails 6 based app implementing usual specs for production web apps:
 - [x] Authentication: Login with Devise
 - [x] Database: PostgreSQL
 - [x] Basic Design: Bootstrap + Fontawesome
-- [ ] Tests: Models, views, API
+- [x] Tests: Models, views, API
 - [ ] CRUD SPA: Stimulus
 - [ ] Wysiwyg Editor
 - [ ] File Uploading
