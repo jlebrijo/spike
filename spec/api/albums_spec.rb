@@ -46,6 +46,13 @@ describe 'API: Albums' do
       found = Album.find body_hash[:id]
       expect(found.name).to eq payload[:name]
     end
+
+    it 'with invalid values returns errors' do
+      post albums_path, params: { album: { name: '' } }, headers: auth_headers(user)
+
+      expect(response).to have_http_status :unprocessable_entity
+      expect(body_hash[:name].first).to eq "can't be blank"
+    end
   end
 
   describe '#UPDATE: PUT /v2/albums/1' do
