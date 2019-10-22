@@ -1,4 +1,4 @@
-feature Album do
+feature Album, :js do
   let(:user) { create :user }
   let!(:album) { create :album, user: user }
 
@@ -8,13 +8,14 @@ feature Album do
     expect(page).to have_content album.name
   end
   scenario 'show: album details page' do
-    visit album_path(album)
-    expect(page).to have_content album.name
+    visit albums_path
+    find("tr[data-id='#{album.id}'] a.show").click
+    expect(page.find('#formModal')).to have_content album.name
   end
   context 'Create' do
     before do
-      visit new_album_path
-      expect(page).to have_content 'Name'
+      visit albums_path
+      find('a.new').click
     end
     scenario 'with valid values, creates album' do
       album_name = 'Black'
@@ -32,8 +33,8 @@ feature Album do
   end
   context 'Edit' do
     before do
-      visit edit_album_path(album)
-      expect(page).to have_content 'Name'
+      visit albums_path
+      find("tr[data-id='#{album.id}'] a.edit").click
     end
     scenario 'with valid values, modifies album' do
       album_name = 'Roots'
@@ -49,11 +50,12 @@ feature Album do
       expect(page).to have_content "Name can't be blank"
     end
   end
-  scenario 'delete: removes album', :js do
+  scenario 'delete: removes album' do
     expect(Album.count).to be 1
     visit albums_path
     find("tr[data-id='#{album.id}'] a[data-method='delete']").click
     page.accept_alert
+    expect(page).to have_content 'Album was successfully destroyed.'
     expect(Album.count).to be_zero
   end
 end
