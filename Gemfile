@@ -28,6 +28,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'haml-rails'
+gem 'simple_form'
 gem 'devise'
 gem 'devise-bootstrap-views'
 gem 'devise_token_auth'

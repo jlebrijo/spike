@@ -4,13 +4,13 @@
     Album
   %button.close{data: {dismiss: "modal"}} ×
 
-= form_for @album, remote: true do |f|
-  = render partial: 'layouts/errors', locals: { errors: @album.errors }
-
+= simple_form_for @album, remote: true do |f|
   .modal-body
-    .field
-      = f.label :name
-      = f.text_field :name
+    = render partial: 'layouts/form_errors', locals: { form: f }
+
+    .form-inputs
+      = f.input :name
+
   .modal-footer
     %button.btn.btn-secondary{data: {dismiss: "modal"}, type: "button"} Close
     = f.submit 'Save', class: 'btn btn-primary'
