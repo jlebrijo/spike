@@ -45,6 +45,7 @@ group :development do
   gem 'guard-livereload'
   gem 'guard-rspec'
   gem 'letter_opener'
+  gem 'better_errors'
 end
 
 group :test do
