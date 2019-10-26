@@ -4,7 +4,7 @@
     Album
   %button.close{data: {dismiss: "modal"}} ×
 
-= simple_form_for @album, remote: true do |f|
+= simple_form_for @album, data: {action:'ajax:success->albums#submitForm'}, remote: true do |f|
   .modal-body
     = render partial: 'layouts/form_errors', locals: { form: f }
 

@@ -12,7 +12,7 @@ class AlbumsController < ApplicationController
   # GET /albums/1.json
   def show
     respond_to do |format|
-      format.js { render :show }
+      format.html { render partial: 'albums/album' }
       format.json { render :show, status: :ok, location: @album }
     end
   end
@@ -20,25 +20,24 @@ class AlbumsController < ApplicationController
   # GET /albums/new
   def new
     @album = Album.new
-    render :form
+    render partial: 'form'
   end
 
   # GET /albums/1/edit
   def edit
-    render :form
+    render partial: 'form'
   end
 
   # POST /albums
   # POST /albums.json
   def create
     @album = current_user.albums.build(album_params)
-
     respond_to do |format|
       if @album.save
         format.html { redirect_to albums_url, notice: 'Album was successfully created.' }
         format.json { render :show, status: :created, location: @album }
       else
-        format.js { render :form }
+        format.html { render partial: 'form' }
         format.json { render json: @album.errors, status: :unprocessable_entity }
       end
     end
@@ -52,7 +51,7 @@ class AlbumsController < ApplicationController
         format.html { redirect_to albums_url, notice: 'Album was successfully updated.' }
         format.json { render :show, status: :ok, location: @album }
       else
-        format.js { render :form }
+        format.html { render partial: 'form' }
         format.json { render json: @album.errors, status: :unprocessable_entity }
       end
     end
