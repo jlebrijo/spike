@@ -20,10 +20,12 @@ class AlbumsController < ApplicationController
   # GET /albums/new
   def new
     @album = Album.new
+    render :form
   end
 
   # GET /albums/1/edit
   def edit
+    render :form
   end
 
   # POST /albums
@@ -36,7 +38,7 @@ class AlbumsController < ApplicationController
         format.html { redirect_to albums_url, notice: 'Album was successfully created.' }
         format.json { render :show, status: :created, location: @album }
       else
-        format.js { render :new }
+        format.js { render :form }
         format.json { render json: @album.errors, status: :unprocessable_entity }
       end
     end
@@ -50,7 +52,7 @@ class AlbumsController < ApplicationController
         format.html { redirect_to albums_url, notice: 'Album was successfully updated.' }
         format.json { render :show, status: :ok, location: @album }
       else
-        format.js { render :edit }
+        format.js { render :form }
         format.json { render json: @album.errors, status: :unprocessable_entity }
       end
     end
