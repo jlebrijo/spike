@@ -8,3 +8,10 @@ end
 Capybara.raise_server_errors = false
 Capybara.server = :puma, { Silent: true }
 Capybara.asset_host = 'http://localhost:3000'
+
+# Creates an sreenshot and open it at the point you put it
+SCREENSHOT_FILE = "tmp/screenshot.png"
+def open_screenshot
+  File.delete SCREENSHOT_FILE if File.exist? SCREENSHOT_FILE
+  system "xdg-open #{save_screenshot SCREENSHOT_FILE}"
+end
