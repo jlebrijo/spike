@@ -1,11 +1,11 @@
 class AlbumsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_albums
   before_action :set_album, only: [:show, :edit, :update, :destroy]
 
   # GET /albums
   # GET /albums.json
   def index
-    @albums = Album.all
   end
 
   # GET /albums/1
@@ -34,10 +34,11 @@ class AlbumsController < ApplicationController
     @album = current_user.albums.build(album_params)
     respond_to do |format|
       if @album.save
-        format.html { redirect_to albums_url, notice: 'Album was successfully created.' }
+        flash.now[:notice] = 'Album was successfully created.'
+        format.html { render partial: 'index' }
         format.json { render :show, status: :created, location: @album }
       else
-        format.html { render partial: 'form' }
+        format.html { render partial: 'form', status: :unprocessable_entity }
         format.json { render json: @album.errors, status: :unprocessable_entity }
       end
     end
@@ -48,10 +49,11 @@ class AlbumsController < ApplicationController
   def update
     respond_to do |format|
       if @album.update(album_params)
-        format.html { redirect_to albums_url, notice: 'Album was successfully updated.' }
+        flash.now[:notice] = 'Album was successfully updated.'
+        format.html { render partial: 'index' }
         format.json { render :show, status: :ok, location: @album }
       else
-        format.html { render partial: 'form' }
+        format.html { render partial: 'form', status: :unprocessable_entity }
         format.json { render json: @album.errors, status: :unprocessable_entity }
       end
     end
@@ -62,15 +64,20 @@ class AlbumsController < ApplicationController
   def destroy
     @album.destroy
     respond_to do |format|
-      format.html { redirect_to albums_url, notice: 'Album was successfully destroyed.' }
+      flash.now[:alert] = 'Album was successfully destroyed.'
+      format.html { render partial: 'index' }
       format.json { head :no_content }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def set_albums
+      @albums = Album.all
+    end
+
     def set_album
-      @album = Album.find(params[:id])
+      @album = @albums.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -1,0 +1,19 @@
+= render partial: 'layouts/flash_messages'
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th User
+      %th
+      %th
+      %th
+
+  %tbody
+    - @albums.each do |album|
+      %tr{data: {id: album.id}}
+        %td= album.name
+        %td= album.user
+        %td= link_to 'Show', album, class: 'show', data:{action:'albums#show'}
+        %td= link_to 'Edit', edit_album_path(album), class: 'edit', data:{action:'albums#show'}
+        %td= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?', action:'ajax:complete->albums#submit' }, remote: true
