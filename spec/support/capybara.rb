@@ -1,10 +1,19 @@
-require 'capybara/poltergeist'
-Capybara.current_driver = :poltergeist
-Capybara.javascript_driver = :poltergeist
-Capybara.register_driver :poltergeist do |app|
-  options = { window_size: [1300, 2000], js_errors: false }
-  Capybara::Poltergeist::Driver.new(app, options)
+require "selenium/webdriver"
+Capybara.register_driver :chrome do |app|
+  Capybara::Selenium::Driver.new(app, browser: :chrome)
 end
+Capybara.register_driver :selenium_chrome_headless do |app|
+  options = Selenium::WebDriver::Chrome::Options.new
+  options.add_argument("--window-size=1024,768")
+  options.add_argument("--headless")
+  options.add_argument("--disable-gpu")
+
+  Capybara::Selenium::Driver.new app,
+                                 browser: :chrome,
+                                 options: options
+end
+Capybara.javascript_driver = :selenium_chrome_headless
+
 Capybara.raise_server_errors = false
 Capybara.server = :puma, { Silent: true }
 Capybara.asset_host = 'http://localhost:3000'
