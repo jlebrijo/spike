@@ -1,12 +1,10 @@
 = render partial: 'layouts/flash_messages'
 
-%table
+%table.table.table-striped.table-sm
   %thead
     %tr
       %th Name
       %th User
-      %th
-      %th
       %th
 
   %tbody
@@ -14,6 +12,10 @@
       %tr{data: {id: album.id}}
         %td= album.name
         %td= album.user
-        %td= link_to 'Show', album, class: 'show', data:{action:'albums#show'}
-        %td= link_to 'Edit', edit_album_path(album), class: 'edit', data:{action:'albums#show'}
-        %td= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?', action:'ajax:complete->albums#submit' }, remote: true
+        %td
+          = link_to album, class: 'btn btn-info btn-sm mr-1 show', data:{action:'albums#show'}, title: 'Show' do
+            %i.fa.fa-lg.fa-eye
+          = link_to edit_album_path(album), class: 'btn btn-warning btn-sm mr-1 edit', data:{action:'albums#show'}, title:  'Edit' do
+            %i.fa.fa-lg.fa-edit
+          = link_to album, class: 'btn btn-danger btn-sm', method: :delete, data: { confirm: 'Are you sure?', action:'ajax:complete->albums#submit' }, remote: true, title: 'Destroy' do
+            %i.fa.fa-lg.fa-trash

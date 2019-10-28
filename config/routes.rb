@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     end
   end
   authenticated :user do
-    root to: "users#index", as: 'unauthenticated_root'
+    root to: "albums#index", as: 'unauthenticated_root'
   end
   resource :users, only: :index
 
