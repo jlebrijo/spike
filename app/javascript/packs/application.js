@@ -19,3 +19,5 @@ import JQuery from 'jquery';
 window.$ = window.JQuery = JQuery;
 import 'bootstrap'
 import 'controllers'
+require("trix")
+require("@rails/actiontext")

@@ -22,10 +22,15 @@ feature Album, :js do
     end
     scenario 'with valid values, creates album' do
       album_name = 'Black'
+      album_content = 'Some content'
       fill_in 'Name', with: album_name
+      find(:xpath, "//trix-editor[@id='album_content']").click.set album_content
       click_button 'Save'
       expect(page).to have_content album_name
-      expect(Album.where(name: album_name)).to be_any
+
+      persisted_album = Album.find_by(name: album_name)
+      expect(persisted_album).not_to be_nil
+      expect(persisted_album.content.to_plain_text).to include album_content
     end
     scenario 'with invalid values, shows errors in forms' do
       album_name = ''

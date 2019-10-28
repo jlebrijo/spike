@@ -10,6 +10,8 @@
 
     .form-inputs
       = f.input :name
+      = f.label :content
+      = f.rich_text_area :content
 
   .modal-footer
     %button.btn.btn-secondary{data: {dismiss: "modal"}, type: "button"} Close

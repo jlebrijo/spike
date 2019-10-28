@@ -10,7 +10,7 @@ Rails 6 based app implementing usual specs for production web apps:
 - [x] Tests: Models, views, API
 - [x] REST API
 - [x] CRUD SPA: Stimulus
-- [ ] Wysiwyg Editor
+- [x] Wysiwyg Editor
 - [ ] File Uploading
 - [ ] User File Storage ==> S3, Spaces DO
 - [ ] Assets pipeline storage ==> CDN, Spaces DO
