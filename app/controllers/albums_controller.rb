@@ -2,7 +2,7 @@ class AlbumsController < ApplicationController
   include ApipieDefinitions
   before_action :authenticate_user!
   before_action :set_albums
-  before_action :set_album, only: [:show, :edit, :update, :destroy]
+  before_action :set_album, only: [:show, :edit, :update, :destroy, :email]
 
   api :GET, '/albums', 'Shows albums list'
   param_group :auth_headers
@@ -16,6 +16,7 @@ class AlbumsController < ApplicationController
     respond_to do |format|
       format.html { render partial: 'albums/album' }
       format.json { render :show, status: :ok, location: @album }
+      format.pdf { render pdf: 'show', layout: 'layouts/pdf' }
     end
   end
 
@@ -73,6 +74,20 @@ class AlbumsController < ApplicationController
       flash.now[:alert] = 'Album was successfully destroyed.'
       format.html { render partial: 'index' }
       format.json { head :no_content }
+    end
+  end
+
+  api :GET, '/albums/:id/email', 'Send album info'
+  param :id, :number, required: true
+  param_group :auth_headers
+  def email
+    pdf = render_to_string(pdf: 'show', template: 'albums/show.pdf', layout: 'layouts/pdf')
+    AlbumMailer.pdf_attached(@album, pdf).deliver
+
+    respond_to do |format|
+      flash.now[:notice] = 'Album was successfully sent.'
+      format.html { render partial: 'index' }
+      format.json { render :show, status: :ok, location: @album }
     end
   end
 

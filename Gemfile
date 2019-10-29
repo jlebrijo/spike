@@ -35,6 +35,7 @@ gem 'devise_token_auth'
 gem 'premailer-rails'
 gem 'apipie-rails'
 gem 'maruku'
+gem 'wicked_pdf'
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.

@@ -17,5 +17,9 @@
             %i.fa.fa-lg.fa-eye
           = link_to edit_album_path(album), class: 'btn btn-warning btn-sm mr-1 edit', data:{action:'albums#show'}, title:  'Edit' do
             %i.fa.fa-lg.fa-edit
-          = link_to album, class: 'btn btn-danger btn-sm', method: :delete, data: { confirm: 'Are you sure?', action:'ajax:complete->albums#submit' }, remote: true, title: 'Destroy' do
+          = link_to album, class: 'btn btn-danger mr-1 btn-sm', method: :delete, data: { confirm: 'Are you sure?', action:'ajax:complete->albums#submit' }, remote: true, title: 'Destroy' do
             %i.fa.fa-lg.fa-trash
+          = link_to album_path(album, format: :pdf), class: 'btn btn-info btn-sm mr-1 pdf', title: 'Pdf', target: '_blank' do
+            %i.fa.fa-lg.fa-file-pdf-o
+          = link_to email_album_path(album), class: 'btn btn-info btn-sm mr-1 pdf', title: 'Send info', data: { action:'ajax:complete->albums#submit' }, remote: true do
+            %i.fa.fa-lg.fa-envelope-o

@@ -1,0 +1,15 @@
+!!!
+%html
+  %head
+    %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
+    %title= content_for?(:title) ? yield(:title) : 'Pdf Document'
+    %meta{name: "description", content: "#{content_for?(:description) ? yield(:description) : 'Services Pdf'}"}
+    = wicked_pdf_stylesheet_link_tag 'pdf'
+  %body
+    %header
+      .col-4
+        = wicked_pdf_image_tag 'lebrijo-logo.png', id: 'logo', style: 'background-color: white;'
+      .col-5
+        %h3 We make your apps real!
+    %main{role: "main"}
+    = yield

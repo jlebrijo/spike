@@ -1,0 +1,6 @@
+%p Hi #{@user.email},
+
+%p
+  We are sending attached all info about your Album
+  = link_to @album.name, album_url(@album, format: :pdf), target: '_pdf'
+  \.

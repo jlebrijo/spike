@@ -1,0 +1,11 @@
+.row
+  .col-4
+    - if @album.picture.attached?
+      = image_tag ActiveStorage::Blob.service.path_for(@album.picture.blob.key)
+  .col-3
+    %h4
+      Album:
+      = @album.name
+
+.row
+  .col-9= @album.content
