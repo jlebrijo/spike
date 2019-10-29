@@ -13,8 +13,8 @@ Rails 6 based app implementing usual specs for production web apps:
 - [x] Wysiwyg Editor
 - [x] File Uploading
 - [x] Sending Emails with design
+- [x] API DOC: Swagger
 - [ ] Reports: PDF with templates
-- [ ] API DOC: Swagger
 - [ ] Deploying scripts from local ==> Docker and Kubernetes
 - [ ] CDN storage (S3, Spaces DO): for file uploading, asset pipeline, email assets
 

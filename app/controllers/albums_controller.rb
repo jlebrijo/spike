@@ -1,15 +1,17 @@
 class AlbumsController < ApplicationController
+  include ApipieDefinitions
   before_action :authenticate_user!
   before_action :set_albums
   before_action :set_album, only: [:show, :edit, :update, :destroy]
 
-  # GET /albums
-  # GET /albums.json
+  api :GET, '/albums', 'Shows albums list'
+  param_group :auth_headers
   def index
   end
 
-  # GET /albums/1
-  # GET /albums/1.json
+  api :GET, '/albums/:id', 'Shows album'
+  param :id, :number, required: true
+  param_group :auth_headers
   def show
     respond_to do |format|
       format.html { render partial: 'albums/album' }
@@ -28,8 +30,9 @@ class AlbumsController < ApplicationController
     render partial: 'form'
   end
 
-  # POST /albums
-  # POST /albums.json
+  api :POST, '/albums ', 'Creates album'
+  param_group :album
+  param_group :auth_headers
   def create
     @album = current_user.albums.build(album_params)
     respond_to do |format|
@@ -44,8 +47,10 @@ class AlbumsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /albums/1
-  # PATCH/PUT /albums/1.json
+  api :PUT, '/albums/:id', 'Updates album'
+  param :id, :number, required: true
+  param_group :album
+  param_group :auth_headers
   def update
     respond_to do |format|
       if @album.update(album_params)
@@ -59,8 +64,9 @@ class AlbumsController < ApplicationController
     end
   end
 
-  # DELETE /albums/1
-  # DELETE /albums/1.json
+  api :DELETE, '/albums/:id', 'Destroys album'
+  param :id, :number, required: true
+  param_group :auth_headers
   def destroy
     @album.destroy
     respond_to do |format|

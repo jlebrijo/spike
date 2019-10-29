@@ -1,9 +1,12 @@
 class ApplicationController < ActionController::Base
-  before_action :include_devise_token_auth_if_json_request
+  skip_before_action :verify_authenticity_token, if: :json_request?
+  before_action :include_devise_token_auth, if: :json_request?
+
   private
-    def include_devise_token_auth_if_json_request
-      if request.format.json?
-        self.class.send(:include, "DeviseTokenAuth::Concerns::SetUserByToken".constantize)
-      end
+    def include_devise_token_auth
+      self.class.send(:include, "DeviseTokenAuth::Concerns::SetUserByToken".constantize)
+    end
+    def json_request?
+      request.format.json?
     end
 end
