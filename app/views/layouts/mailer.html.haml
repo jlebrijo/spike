@@ -5,9 +5,10 @@
     = stylesheet_link_tag 'email'
   %body
     %header
-      = image_tag 'lebrijo-logo'
+      = link_to 'https://lebrijo.com', target: '_blank' do
+        = image_tag 'lebrijo-logo'
       %h3 We make your apps real!
     %main= yield
     %footer
       Copyright © 2013 - Engineered by
-      = link_to 'Lebrijo.com', 'https://lebrijo.com'
+      = link_to 'Lebrijo.com', 'https://lebrijo.com', target: '_blank'
