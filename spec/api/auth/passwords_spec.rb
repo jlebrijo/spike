@@ -15,8 +15,8 @@ describe 'API: Passwords', type: :request do
     end
 
     it 'clicking the link you are redirected with auth_headers' do
-      document = Nokogiri::HTML(@email.body.to_s)
-      change_url = document.search('a').attribute('href').to_s.remove('http://localhost:3000')
+      document = Nokogiri::HTML(@email.html_part.body.to_s)
+      change_url = document.search('main a').attribute('href').to_s.remove('http://localhost')
       get change_url
 
       expect(body).to include 'access-token'
