@@ -7,5 +7,9 @@
     %b Name:
     = @album.name
   %p
+    %b Picture:
+    - if @album.picture.attached?
+      = image_tag @album.picture.variant(resize_to_limit: [100, 100])
+  %p
     %b Content:
     = @album.content

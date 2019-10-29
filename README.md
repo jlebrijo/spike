@@ -11,11 +11,14 @@ Rails 6 based app implementing usual specs for production web apps:
 - [x] REST API
 - [x] CRUD SPA: Stimulus
 - [x] Wysiwyg Editor
-- [ ] File Uploading
-- [ ] User File Storage ==> S3, Spaces DO
-- [ ] Assets pipeline storage ==> CDN, Spaces DO
+- [x] File Uploading
 - [ ] Sending Emails with design
 - [ ] Reports: PDF with templates
 - [ ] API DOC: Swagger
-- [ ] Performance: Skylight
 - [ ] Deploying scripts from local ==> Docker and Kubernetes
+- [ ] User File Storage ==> S3, Spaces DO
+- [ ] Assets pipeline storage ==> CDN, Spaces DO
+
+TODO:
+- [ ] Performance: Skylight
+- [ ] Load test

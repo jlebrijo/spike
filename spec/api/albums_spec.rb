@@ -28,7 +28,7 @@ describe 'API: Albums' do
   end
 
   describe '#CREATE: POST /v2/album' do
-    let(:payload) {{name: 'Fear of the Dark'}}
+    let(:payload) {{name: 'Fear of the Dark', picture: fixture_file_upload("#{Rails.root}/spec/fixtures/lebrijo.jpg", 'image/jpg')}}
 
     it 'return 200 and create the album' do
       a = build :album
@@ -39,12 +39,13 @@ describe 'API: Albums' do
       expect(found.name).to eq a.name
     end
 
-    it 'run with payload' do
+    it 'run with payload: name and picture' do
       post albums_path, params: { album: payload }, headers: auth_headers(user)
 
       expect(response).to have_http_status :created
       found = Album.find body_hash[:id]
       expect(found.name).to eq payload[:name]
+      expect(found.picture).to be_attached
     end
 
     it 'with invalid values returns errors' do

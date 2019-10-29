@@ -10,6 +10,12 @@
 
     .form-inputs
       = f.input :name
+      .row
+        .col= f.input :picture
+        - if @album.picture.attached?
+          .col
+            %label Actual picture:
+            = image_tag @album.picture.variant(resize_to_limit: [100, 100])
       = f.label :content
       = f.rich_text_area :content
 
