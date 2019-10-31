@@ -8,8 +8,12 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-  %body
+  %body{data:{controller: 'application'}}
     = render partial: 'layouts/topbar'
     = render partial: 'layouts/flash_messages'
 
-    .container= yield
+    .container{data:{target: 'application.index'}}= yield
+
+    #formModal.modal.fade
+      .modal-dialog
+        .modal-content{data:{target: 'application.modalContent'}}

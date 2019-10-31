@@ -3,9 +3,9 @@ import { Controller } from "stimulus"
 export default class extends Controller {
     static targets = ['modalContent', 'index']
 
-    show(e) {
-        e.preventDefault()
-        fetch(e.currentTarget.getAttribute('href'))
+    showModal(event) {
+        event.preventDefault()
+        fetch(event.currentTarget.getAttribute('href'))
             .then(response => response.text())
             .then(html => {
                 this.modalContentTarget.innerHTML = html;

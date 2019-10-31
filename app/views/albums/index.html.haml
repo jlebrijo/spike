@@ -1,10 +1,1 @@
-#albums{data:{controller: 'albums'}}
-  %h1 Albums
-
-  = link_to 'New Album', new_album_path, class: 'btn btn-primary new mb-2', data:{action:'albums#show'}
-
-  #index{data:{target: 'albums.index'}}= render partial: 'index'
-
-  #formModal.modal.fade
-    .modal-dialog
-      .modal-content{data:{target: 'albums.modalContent'}}
+= render partial: 'index'
