@@ -1,0 +1,24 @@
+app:
+  build: .
+  # This composer file is to simulate a production environment.
+  # If you want to develop/test and project files to be refreshed
+  # in container, uncomment this volume and remove environment
+  # production variables:
+  # volumes:
+  #   - .:/app
+  ports:
+    - "3000:3000"
+  links:
+    - postgres
+  environment:
+    RAILS_ENV: 'production'
+    RAILS_SERVE_STATIC_FILES: 'true'
+    DATABASE_HOST: postgres
+    # Next two are not recommended on true production environments:
+    DISABLE_DATABASE_ENVIRONMENT_CHECK: 1
+    RAILS_MASTER_KEY: '0c4b12ccc2c0e788a93c1e7a1ba9eeaf'
+
+postgres:
+  image: postgres
+  ports:
+    - "5432"

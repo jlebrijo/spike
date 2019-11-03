@@ -15,6 +15,7 @@ Rails 6 based app implementing usual specs for production web apps:
 - [x] Sending Emails with design
 - [x] API DOC: Swagger
 - [x] Reports: PDF with templates. Linked and mail attached.
+- [x] Containerizing: Dockerfile and docker-compose (with production env)
 - [ ] Deploying scripts from local ==> Docker and Kubernetes
 - [ ] CDN storage (S3, Spaces DO): for file uploading, asset pipeline, email assets
 

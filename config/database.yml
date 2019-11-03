@@ -5,7 +5,7 @@ default: &default
   username: postgres
   password: postgres
   template: template0
-  host:     localhost
+  host: <%= ENV['DATABASE_HOST'] || 'localhost' %>
   database: spike
 
 development:
