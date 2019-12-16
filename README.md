@@ -19,7 +19,7 @@ Rails 6 based app implementing usual specs for production web apps:
 Deployment:
 - [x] Containerizing: Dockerfile and docker-compose (with production env)
 - [x] Deploying scripts from local ==> Docker and Kubernetes
-- [ ] Debug scripts: ssh, restore db and rails console
+- [x] Debug scripts: ssh, restore db and rails console
 - [ ] CDN storage (S3, Spaces DO): for file uploading, asset pipeline, email assets
 - [ ] HTTPS (DO Load Balancers)
 - [ ] CI/CD (CircleCI)

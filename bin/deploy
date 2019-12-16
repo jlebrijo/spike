@@ -1,3 +1,5 @@
+#!/bin/sh
+
 docker build -t jlebrijo/spike .
 docker push jlebrijo/spike
 

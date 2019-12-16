@@ -1,0 +1,29 @@
+#!/bin/sh
+
+POD=$(kubectl get pods | grep rails | awk '{print $1}')
+
+case "$1" in
+c)
+  kubectl exec -it $POD -- bundle exec rails c
+;;
+
+dbconsole)
+  kubectl exec -it $POD -- bundle exec rails dbconsole
+;;
+
+restore)
+  kubectl exec -it $POD -- bundle exec rake db:backup
+  kubectl cp $POD:tmp/db.sql tmp/db.sql
+  rails db:environment:set RAILS_ENV=development
+  rake db:restore
+
+;;
+
+help)
+        echo "Usage: $0 { |c|dbconsole|help}"
+;;
+
+*)
+        kubectl exec -it $POD -- /bin/bash
+
+esac
