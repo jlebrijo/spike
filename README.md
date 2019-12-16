@@ -70,3 +70,9 @@ Redeployments:
 Automating redeployments:
 * `./bin/deploy` run migrations and redeployment
 
+### Debug
+
+* `./bin/ssh` bash connection
+* `./bin/ssh c` rails console
+* `./bin/ssh dbconsole` rails dbconsole
+* `./bin/ssh restore` restore database locally from production
