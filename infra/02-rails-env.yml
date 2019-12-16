@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: rails-env
+data:
+  RAILS_ENV: 'production'
+  RAILS_SERVE_STATIC_FILES: 'true'
+  DATABASE_HOST: 'postgres-svc'
+  DISABLE_DATABASE_ENVIRONMENT_CHECK: '1'
+  RAILS_MASTER_KEY: '0c4b12ccc2c0e788a93c1e7a1ba9eeaf'

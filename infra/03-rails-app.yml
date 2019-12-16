@@ -1,0 +1,40 @@
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: rails
+spec:
+  selector:
+    matchLabels:
+      app: rails
+      tier: frontend
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: rails
+        tier: frontend
+    spec:
+      containers:
+        - image: jlebrijo/spike
+          name: rails
+          envFrom:
+            - configMapRef:
+                name: rails-env
+          ports:
+            - containerPort: 3000
+              name: rails
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rails-svc
+spec:
+  ports:
+    - port: 3000
+      targetPort: 3000
+      nodePort: 30000
+  selector:
+    app: rails
+    tier: frontend
+  type: NodePort

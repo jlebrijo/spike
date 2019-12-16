@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: migrate
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: migrate
+          image: jlebrijo/spike
+          command: ['rails']
+          args: ['db:migrate']
+          envFrom:
+            - configMapRef:
+              name: rails-env

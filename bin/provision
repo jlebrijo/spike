@@ -1,0 +1,15 @@
+cd infra
+
+terraform init
+terraform apply -auto-approve
+mv kubeconfig.yaml ~/.kube/config
+
+kubectl apply -f 01-postgresql.yml
+kubectl apply -f 02-rails-env.yml
+kubectl apply -f 03-rails-app.yml
+
+kubectl apply -f 04-db-setup-job.yml
+kubectl wait --for=condition=complete --timeout=600s job/setup
+kubectl delete job/setup
+
+cd ..

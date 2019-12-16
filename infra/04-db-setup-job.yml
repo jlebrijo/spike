@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: setup
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: setup
+          image: jlebrijo/spike
+          envFrom:
+            - configMapRef:
+                name: rails-env
+          command: ['rails']
+          args: ['db:create', 'db:migrate', 'db:seed']
