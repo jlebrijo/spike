@@ -61,7 +61,7 @@ Automate provisioning:
 Redeployments:
 * `docker build -t jlebrijo/spike .` build image with changes.
 * `docker push jlebrijo/spike` publish image.
-* `kubectl apply -f 04-migration-job.yml` runs migration.
+* `kubectl apply -f 05-migration-job.yml` runs migration.
 * `kubectl wait --for=condition=complete --timeout=600s job/migrate` wait completion before to continue.
 * `kubectl logs job/migrate` check everything went right.
 * `kubectl delete job/migrate` removes job.

@@ -5,9 +5,8 @@ docker push jlebrijo/spike
 
 cd infra
 
-kubectl apply -f 04-migration-job.yml
+kubectl apply -f 05-migration-job.yml
 kubectl wait --for=condition=complete --timeout=600s job/migrate
-kubectl logs job/migrate
 kubectl delete job/migrate
 kubectl rollout restart deployment/rails
 

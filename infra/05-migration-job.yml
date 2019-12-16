@@ -13,4 +13,4 @@ spec:
           args: ['db:migrate']
           envFrom:
             - configMapRef:
-              name: rails-env
+                name: rails-env
