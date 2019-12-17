@@ -3,12 +3,26 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      DOCKER_IMAGE: docker.pkg.github.com/jlebrijo/spike/spike:latest
+      TOKEN: ${{secrets.GITHUB_TOKEN}}
+
     steps:
     - uses: actions/checkout@master
-    - name: Publish to Github Registry
-      uses: elgohr/Publish-Docker-Github-Action@master
-      with:
-        name: jlebrijo/spike/spike
-        username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_PACKAGES_TOKEN }}
-        registry: docker.pkg.github.com
+
+    - name: Build Docker image
+      run: docker build -t $DOCKER_IMAGE .
+
+    - name: Run postgres/rails app
+      run: |
+        docker run -it -d --name postgres postgres:11
+        docker run -it -d --name builder -e DATABASE_HOST='postgres' --link postgres $DOCKER_IMAGE
+
+    - name: Tests
+      run: docker exec builder bash -c 'gem install bundler && bundle exec rake db:create spec'
+
+    - name: Docker Registry login
+      run: docker login docker.pkg.github.com -u $GITHUB_ACTOR -p $TOKEN
+
+    - name: Push Docker iamge
+      run: docker push $DOCKER_IMAGE
