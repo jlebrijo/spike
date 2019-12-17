@@ -15,8 +15,10 @@ spec:
         app: rails
         tier: frontend
     spec:
+      imagePullSecrets:
+        - name: regcred
       containers:
-        - image: jlebrijo/spike
+        - image: docker.pkg.github.com/jlebrijo/spike/spike:latest
           name: rails
           envFrom:
             - configMapRef:

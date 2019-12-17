@@ -1,8 +1,5 @@
 #!/bin/sh
 
-docker build -t jlebrijo/spike .
-docker push jlebrijo/spike
-
 cd infra
 
 kubectl apply -f 05-migration-job.yml

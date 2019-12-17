@@ -6,9 +6,11 @@ spec:
   template:
     spec:
       restartPolicy: Never
+      imagePullSecrets:
+          - name: regcred
       containers:
         - name: migrate
-          image: jlebrijo/spike
+          image: docker.pkg.github.com/jlebrijo/spike/spike:latest
           command: ['rails']
           args: ['db:migrate']
           envFrom:

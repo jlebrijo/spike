@@ -6,9 +6,11 @@ spec:
   template:
     spec:
       restartPolicy: Never
+      imagePullSecrets:
+          - name: regcred
       containers:
         - name: setup
-          image: jlebrijo/spike
+          image: docker.pkg.github.com/jlebrijo/spike/spike:latest
           envFrom:
             - configMapRef:
                 name: rails-env
