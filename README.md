@@ -21,8 +21,8 @@ Deployment:
 - [x] Deploying scripts from local ==> Docker and Kubernetes
 - [x] Debug scripts: ssh, restore db and rails console
 - [x] HTTPS (DO Load Balancers)
+- [x] CI/CD (Github Actions)
 - [ ] CDN storage (S3, Spaces DO): for file uploading, asset pipeline, email assets
-- [ ] CI/CD (CircleCI)
 - [ ] Monitor / Alerts
 - [ ] Exceptions notifiation
 

@@ -1,4 +1,4 @@
-name: Publish to Github Registry
+name: Continuous Deployment on Kubernetes
 on: [push]
 jobs:
   build:
@@ -36,4 +36,3 @@ jobs:
 
     - name: Deploy
       run: ./bin/deploy
-
