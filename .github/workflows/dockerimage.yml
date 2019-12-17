@@ -1,0 +1,14 @@
+name: Publish to Github Registry
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Publish to Github Registry
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: jlebrijo/spike/spike
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_PACKAGES_TOKEN }}
+        registry: docker.pkg.github.com
