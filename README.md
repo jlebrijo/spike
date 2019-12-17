@@ -20,8 +20,8 @@ Deployment:
 - [x] Containerizing: Dockerfile and docker-compose (with production env)
 - [x] Deploying scripts from local ==> Docker and Kubernetes
 - [x] Debug scripts: ssh, restore db and rails console
+- [x] HTTPS (DO Load Balancers)
 - [ ] CDN storage (S3, Spaces DO): for file uploading, asset pipeline, email assets
-- [ ] HTTPS (DO Load Balancers)
 - [ ] CI/CD (CircleCI)
 - [ ] Monitor / Alerts
 - [ ] Exceptions notifiation

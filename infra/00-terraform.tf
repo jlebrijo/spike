@@ -27,9 +27,16 @@ resource "local_file" "kubernetes_config" {
   filename = "kubeconfig.yaml"
 }
 
+resource "digitalocean_certificate" "cert" {
+  name    = "test"
+  type    = "lets_encrypt"
+  domains = ["test.lebrijo.com"]
+}
+
 resource "digitalocean_loadbalancer" "public" {
   name = "lb-1"
   region = "ams3"
+  redirect_http_to_https = true
 
   forwarding_rule {
     entry_port = 80
@@ -37,6 +44,16 @@ resource "digitalocean_loadbalancer" "public" {
 
     target_port = 30000
     target_protocol = "http"
+  }
+
+  forwarding_rule {
+    entry_port = 443
+    entry_protocol = "https"
+
+    target_port = 30000
+    target_protocol = "http"
+
+    certificate_id = digitalocean_certificate.cert.id
   }
 
   healthcheck {
