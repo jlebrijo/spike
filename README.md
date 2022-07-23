@@ -2,7 +2,7 @@
 
 Rails 7.0.3.1 (ruby-3.0.4, node-18.2.0). Based app implementing usual specs for production web apps:
 
-- [ ] First commit: rails new . --database=postgresql --css=bootstrap
+- [x] First commit: rails new . --database=postgresql --css=bootstrap
 - [ ] Continuous Development: Guard
 - [ ] Template engine: Haml
 - [ ] Database: PostgreSQL
