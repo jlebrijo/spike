@@ -3,7 +3,14 @@
 Rails 7.0.3.1 (ruby-3.0.4, node-18.2.0). Based app implementing usual specs for production web apps:
 
 - [x] First commit: rails new . --database=postgresql --css=bootstrap
-- [ ] Continuous Development: Guard
+- [x] Continuous Development: Guard
+
+  - Add to gemfile
+    - gem 'guard-rails'
+    - gem 'guard-bundler'
+    - gem 'guard-livereload'
+  - guard init
+
 - [ ] Template engine: Haml
 - [ ] Database: PostgreSQL
 - [ ] Basic Design: Bootstrap + Fontawesome
