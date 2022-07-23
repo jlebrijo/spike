@@ -5,13 +5,18 @@ Rails 7.0.3.1 (ruby-3.0.4, node-18.2.0). Based app implementing usual specs for 
 - [x] First commit: rails new . --database=postgresql --css=bootstrap
 - [x] Continuous Development: Guard
 
-  - Add to gemfile
-    - gem 'guard-rails'
-    - gem 'guard-bundler'
-    - gem 'guard-livereload'
+  - bundle add gem 'guard-rails'
+  - bundle add gem 'guard-bundler'
+  - bundle add gem 'guard-livereload'
   - guard init
 
-- [ ] Template engine: Haml
+- [x] Template engine: Haml
+
+  - bundle add gem "haml-rails"
+  - rails generate haml:application_layout convert
+  - rm app/views/layouts/application.html.erb
+  - HAML_RAILS_DELETE_ERB=true rails haml:erb2haml
+
 - [ ] Database: PostgreSQL
 - [ ] Basic Design: Bootstrap + Fontawesome
 - [ ] Tests: Models, views, API
