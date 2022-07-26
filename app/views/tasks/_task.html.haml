@@ -1,4 +1,4 @@
-%tr
+%tr{ id: dom_id(task) }
   %td= tag.i class: "bi bi#{'-check' if task.done}-square"
   %td{ class: ('text-decoration-line-through' if task.done)}= task.title
   %td
