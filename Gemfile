@@ -78,3 +78,5 @@ group :test do
 end
 
 gem "haml-rails", "~> 2.0"
+
+gem "simple_form", "~> 5.1"
