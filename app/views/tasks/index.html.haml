@@ -1,20 +1,8 @@
 %h1 Tasks
 
+= render 'form', task: Task.new
 %table
-  %tbody
-    - @tasks.each do |task|
-      %tr
-        %td= tag.i class: "bi bi#{'-check' if task.done}-square"
-        %td{ class: ('text-decoration-line-through' if task.done)}= task.title
-        %td
-          = link_to task, title: 'Show' do 
-            %i.bi.bi-eye
-        %td
-          = link_to edit_task_path(task), title: 'Edit' do 
-            %i.bi.bi-pencil
-        %td
-          = link_to task, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, title: 'Destroy' do
-            %i.bi.bi-trash
+  %tbody#tasks= render @tasks
 
 %br
 
