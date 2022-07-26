@@ -268,6 +268,8 @@ GEM
       websocket (~> 1.0)
     sexp_processor (4.16.1)
     shellany (0.0.1)
+    shoulda-matchers (5.1.0)
+      activesupport (>= 5.2.0)
     simple_form (5.1.0)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
@@ -335,6 +337,7 @@ DEPENDENCIES
   redis (~> 4.0)
   rspec-rails (~> 5.1)
   selenium-webdriver
+  shoulda-matchers (~> 5.1)
   simple_form (~> 5.1)
   simplecov (~> 0.21.2)
   sprockets-rails

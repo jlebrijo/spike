@@ -79,6 +79,7 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
   gem "simplecov", "~> 0.21.2"
+  gem "shoulda-matchers", "~> 5.1"
 end
 
 gem "haml-rails", "~> 2.0"
