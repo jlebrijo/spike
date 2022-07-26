@@ -68,6 +68,9 @@ group :development do
   gem 'guard-rails'
   gem 'guard-bundler'
   gem 'guard-livereload'
+
+  gem "rspec-rails", "~> 5.1"
+  gem "guard-rspec", "~> 4.7"
 end
 
 group :test do
@@ -75,6 +78,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem "simplecov", "~> 0.21.2"
 end
 
 gem "haml-rails", "~> 2.0"
