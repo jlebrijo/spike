@@ -25,7 +25,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to task_url(@task), notice: "Task was successfully created." }
+        format.html { redirect_to tasks_url, notice: "Task was successfully created." }
         format.turbo_stream
         format.json { render :show, status: :created, location: @task }
       else
@@ -43,7 +43,7 @@ class TasksController < ApplicationController
   def update
     respond_to do |format|
       if @task.update(task_params)
-        format.html { redirect_to task_url(@task), notice: "Task was successfully updated." }
+        format.html { redirect_to tasks_url, notice: "Task was successfully updated." }
         format.turbo_stream { render turbo_stream: turbo_stream.replace(@task)}
         format.json { render :show, status: :ok, location: @task }
       else
@@ -57,7 +57,7 @@ class TasksController < ApplicationController
   def toggle_done
     @task.toggle! :done
     respond_to do |format|
-      format.html { redirect_to task_url(@task), notice: "Task was successfully updated." }
+      format.html { redirect_to tasks_url, notice: "Task was successfully updated." }
       format.turbo_stream { render turbo_stream: turbo_stream.replace(@task)}
       format.json { render :show, status: :ok, location: @task }
     end
