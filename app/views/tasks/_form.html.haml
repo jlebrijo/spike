@@ -3,7 +3,7 @@
   
   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 
-  = f.input :done, label: false
-  = f.input :title, label: false, input_html: { class: 'form-control form-control-sm' }
+  .col-sm-1= f.input :done, label: false
+  .col-sm-4= f.input :title, label: false, input_html: { class: 'form-control form-control-sm' }
 
-  = f.button :submit, class: 'btn btn-primary btn-sm'
+  .col-sm-2= f.button :submit, class: 'btn btn-primary btn-sm'

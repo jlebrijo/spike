@@ -1,8 +1,10 @@
 %h1 Tasks
 
-= render 'form', task: Task.new
-%table
-  %tbody#tasks= render @tasks
+
+
+.container#tasks
+  = render 'form', task: Task.new
+  = render @tasks
 
 %br
 
