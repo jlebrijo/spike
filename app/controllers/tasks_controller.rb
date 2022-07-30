@@ -1,9 +1,9 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: %i[ show edit update destroy ]
+  before_action :set_task, only: %i[ show edit update toggle_done destroy ]
 
   # GET /tasks or /tasks.json
   def index
-    @tasks = Task.all
+    @tasks = Task.all.order :created_at
   end
 
   # GET /tasks/1 or /tasks/1.json
@@ -50,6 +50,16 @@ class TasksController < ApplicationController
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @task.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  # PATCH /tasks/1/toggle_done or /tasks/1/toggle_done.json
+  def toggle_done
+    @task.toggle! :done
+    respond_to do |format|
+      format.html { redirect_to task_url(@task), notice: "Task was successfully updated." }
+      format.turbo_stream { render turbo_stream: turbo_stream.replace(@task)}
+      format.json { render :show, status: :ok, location: @task }
     end
   end
 

@@ -71,6 +71,7 @@ group :development do
 
   gem "rspec-rails", "~> 5.1"
   gem "guard-rspec", "~> 4.7"
+  gem "pry", "~> 0.14.1"
 end
 
 group :test do
