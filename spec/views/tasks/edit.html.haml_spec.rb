@@ -11,9 +11,7 @@ RSpec.describe "tasks/edit", type: :view do
   it "renders the edit task form" do
     render
 
-    assert_select "form[action=?][method=?]", task_path(@task), "post" do
-
-      assert_select "input[name=?]", "task[done]"
+    assert_select "form[action=?][method=?]", task_path(@task), "post" do 
 
       assert_select "input[name=?]", "task[title]"
     end

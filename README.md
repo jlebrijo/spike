@@ -17,11 +17,11 @@ Rails 7.0.3.1 (ruby-3.0.4, node-18.2.0). Based app implementing usual specs for 
   - rm app/views/layouts/application.html.erb
   - HAML_RAILS_DELETE_ERB=true rails haml:erb2haml
 
-- [ ] Database: PostgreSQL
-- [ ] Basic Design: Bootstrap + Fontawesome
+- [x] Database: PostgreSQL
+- [x] Basic Design: Bootstrap + Bootstrap Icons
+- [x] SPA with Turbo: TODO list
 - [ ] Tests: Models, views, API
 - [ ] REST API
-- [ ] CRUD SPA: Stimulus
 - [ ] Authentication: Login with Devise
 - [ ] Wysiwyg Editor
 - [ ] File Uploading
